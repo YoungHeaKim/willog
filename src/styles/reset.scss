@@ -1,0 +1,91 @@
+@font-face {
+  font-family: Pretendard;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../theme/fonts/Pretendard-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../theme/fonts/Pretendard-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../theme/fonts/Pretendard-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../theme/fonts/Pretendard-Regular.woff2') format('woff2');
+}
+
+body {
+  font-family: Pretendard;
+}
+
+html {
+  font-weight: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+img {
+  display: block;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select,
+pre {
+  display: block;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  display: block;
+}
+
+button,
+input[type='checkbox'] + label {
+  cursor: pointer;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
