@@ -1,15 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from '../Header';
+import { Layout } from './styles';
 
-const MainLayout = () => {
+const MainLayout: React.FC = () => {
   return (
-    <div
-      style={{
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
-      <div>Test</div>
-    </div>
+    <Layout>
+      <Header />
+      <Outlet />
+    </Layout>
   );
 };
 
