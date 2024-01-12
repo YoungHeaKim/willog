@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '@src/constants/colors';
-import { ValueOf } from '@src/types';
+import colors from '../constants/colors';
+import { ValueOf } from '../types';
 import fonts from './fonts';
 
 // eslint-disable-next-line import/no-cycle

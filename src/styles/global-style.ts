@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     body{
       max-width: 100vw;
       overflow-x: hidden;
+      margin: 0;
     }
     button {
         background: none;
