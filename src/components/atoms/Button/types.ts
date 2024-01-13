@@ -13,6 +13,7 @@ export type ButtonType =
   | 'solid-light-red'
   | 'outline-main'
   | 'outline-red'
-  | 'outline-gray';
+  | 'outline-gray'
+  | 'none';
 
 export type ButtonSize = 'H_56' | 'H_48' | 'H_44' | 'H_36' | 'H_32';

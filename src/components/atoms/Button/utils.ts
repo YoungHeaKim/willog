@@ -53,6 +53,10 @@ export const getButtonStyle = (
       style.backgroundColor = colors.GRAY8;
       style.border = `1px solid ${colors.GRAY6}`;
       break;
+    case 'none':
+      style.backgroundColor = colors.GRAY8;
+      style.border = 0;
+      break;
     default:
       break;
   }
@@ -116,6 +120,8 @@ export const getLabelColor = (type?: ButtonType, disabled?: boolean) => {
       return disabled ? colors.GRAY8 : colors.SECONDARY4;
     case 'outline-gray':
       return disabled ? colors.GRAY8 : colors.GRAY4;
+    case 'none':
+      return disabled ? colors.GRAY8 : colors.GRAY4;
     default:
       return colors.GRAY7;
   }
@@ -148,6 +154,8 @@ export const getPressedStyle = (type?: ButtonType) => {
       return { borderColor: colors.GRAY5 };
     case 'outline-red':
       return { borderColor: colors.SECONDARY2 };
+    case 'none':
+      return { borderColor: colors.GRAY8 };
     default:
       return { backgroundColor: colors.GRAY2 };
   }

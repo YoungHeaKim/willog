@@ -1,23 +1,52 @@
-import React, { CSSProperties, ReactElement, ReactNode } from 'react';
+import React, { CSSProperties, HTMLProps, ReactElement } from 'react';
 import { styled } from 'styled-components';
+import { Button, Input } from 'components/atoms';
+import colors from 'constants/colors';
 
-interface Props {
-  children?: string | ReactNode | ReactNode[];
-  isCenter?: boolean;
+interface Props extends HTMLProps<HTMLInputElement> {
+  buttonSrc?: string;
   style?: CSSProperties;
 }
 
-const Row = ({ children, isCenter = false, ...rest }: Props): ReactElement => {
+const LabelInput = ({
+  children,
+  buttonSrc,
+  style,
+  ...rest
+}: Props): ReactElement => {
   return (
-    <RowStyle isCenter={isCenter} {...rest}>
-      {children}
-    </RowStyle>
+    <LabelInputStyle style={style}>
+      <Input {...rest} />
+      {buttonSrc && (
+        <ButtonStyle>
+          <img src={buttonSrc} alt={'버튼 이미지'} />
+        </ButtonStyle>
+      )}
+    </LabelInputStyle>
   );
 };
 
-const RowStyle = styled.div<{ isCenter: boolean }>`
-  display: flex;
-  ${isCenter => isCenter && `justify-content: center; align-items: center;`}
+const LabelInputStyle = styled.div`
+  position: relative;
+  margin-top: 10px;
+  background-color: ${colors.GRAY8};
+  border-radius: 8px;
 `;
 
-export default Row;
+const ButtonStyle = styled.button`
+  position: absolute;
+  right: 5px;
+  top: 3.5px;
+  bottom: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background-color: ${colors.GRAY8};
+
+  & img {
+    width: 20px;
+    height: 20px;
+  }
+`;
+
+export default LabelInput;
