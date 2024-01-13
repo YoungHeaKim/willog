@@ -2,7 +2,12 @@ import React from 'react';
 import MainImage from '../../../assets/MainBanner.jpg';
 import colors from '../../../constants/colors';
 import { Input, Typo } from '../../atoms';
-import { SearchHeader, SearchInnerHeader, SearchWrap } from './styles';
+import {
+  SearchHeader,
+  SearchInnerHeader,
+  SearchInput,
+  SearchWrap,
+} from './styles';
 
 const SearchView: React.FC = () => {
   return (
@@ -24,7 +29,7 @@ const SearchView: React.FC = () => {
             인터넷의 시각자료 출처입니다. <br />
             모든 지역에 있는 크리에터들의 지원을 받습니다.
           </Typo>
-          <Input placeholder="테스트" style={{ marginTop: '10px' }} />
+          <SearchInput placeholder="고해상도 이미지 검색" />
         </SearchInnerHeader>
       </SearchHeader>
     </SearchWrap>
