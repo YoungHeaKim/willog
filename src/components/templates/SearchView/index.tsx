@@ -7,12 +7,15 @@ import {
   SearchHeader,
   SearchInnerHeader,
   SearchInput,
+  SearchItem,
+  SearchResultWrap,
   SearchWrap,
 } from './styles';
 
 const SearchView: React.FC = () => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const [search, setSearch] = useState('');
+  const [searchArr, setSearchArr] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   useEffect(() => {
     const resizeListener = () => {
@@ -55,6 +58,16 @@ const SearchView: React.FC = () => {
           />
         </SearchInnerHeader>
       </SearchHeader>
+
+      <SearchResultWrap isEmpty={searchArr.length === 0}>
+        {searchArr.length === 0 ? (
+          <Typo size={'BODY2'} color={colors.GRAY1}>
+            아무 사진이 없습니다.
+          </Typo>
+        ) : (
+          searchArr.map(item => <SearchItem>{item}</SearchItem>)
+        )}
+      </SearchResultWrap>
     </SearchWrap>
   );
 };
