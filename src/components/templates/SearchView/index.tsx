@@ -2,7 +2,9 @@ import React, { FormEventHandler, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import MainImage from '../../../assets/MainBanner.jpg';
+import Active from '../../../assets/active_like.png';
 import SearchIcon from '../../../assets/search.png';
+import UnActive from '../../../assets/unActive_like.png';
 import colors from '../../../constants/colors';
 import { Typo } from '../../atoms';
 import {
@@ -15,6 +17,7 @@ import {
   SearchWrap,
 } from './styles';
 import imageService, { PhotoListResponse } from 'apis/images';
+import { ReactComponent as Spinner } from 'assets/spinner.svg';
 import { useImageActions, useImage } from 'hooks';
 
 const SearchView: React.FC = () => {
@@ -127,7 +130,12 @@ const SearchView: React.FC = () => {
                   onClick={() => handleBookMark(item)}
                   isSelect={!!images.find(v => v.id === item.id)}
                 >
-                  하트
+                  <img
+                    src={images.find(v => v.id === item.id) ? Active : UnActive}
+                    alt="bookmark"
+                    width={'15px'}
+                    height={'15px'}
+                  />
                 </BookmarkButton>
               </SearchItem>
             ))
@@ -137,7 +145,7 @@ const SearchView: React.FC = () => {
             </Typo>
           )
         ) : (
-          <img src={'https://loading.io/asset/715392'} alt={'spiner'} />
+          <Spinner />
         )}
       </SearchResultWrap>
       <div>1</div>

@@ -78,5 +78,8 @@ export const BookmarkButton = styled.button<{ isSelect: boolean }>`
   position: absolute;
   bottom: 5px;
   right: 5px;
-  color: ${({ isSelect }) => (!isSelect ? 'white' : 'red')};
+
+  & img {
+    ${({ isSelect }) => !isSelect && `background-color: white`}
+  }
 `;
