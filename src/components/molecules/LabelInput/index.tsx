@@ -6,11 +6,13 @@ import colors from 'constants/colors';
 interface Props extends HTMLProps<HTMLInputElement> {
   buttonSrc?: string;
   style?: CSSProperties;
+  onClick: () => void;
 }
 
 const LabelInput = ({
   children,
   buttonSrc,
+  onClick,
   style,
   ...rest
 }: Props): ReactElement => {
@@ -18,7 +20,7 @@ const LabelInput = ({
     <LabelInputStyle style={style}>
       <Input {...rest} />
       {buttonSrc && (
-        <ButtonStyle>
+        <ButtonStyle onClick={onClick}>
           <img src={buttonSrc} alt={'버튼 이미지'} />
         </ButtonStyle>
       )}

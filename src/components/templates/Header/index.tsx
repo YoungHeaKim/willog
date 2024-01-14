@@ -14,7 +14,12 @@ const Header: React.FC = () => {
         onPress={() => navigate('/')}
       />
       <Row>
-        <Button size={'H_32'} label="북마크" type={'outline-gray'} />
+        <Button
+          size={'H_32'}
+          label="북마크"
+          type={'outline-gray'}
+          onPress={() => navigate('/bookmark')}
+        />
       </Row>
     </HeaderLayout>
   );
