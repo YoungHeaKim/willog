@@ -18,6 +18,7 @@ import {
 } from './styles';
 import imageService, { PhotoListResponse } from 'apis/images';
 import { ReactComponent as Spinner } from 'assets/spinner.svg';
+import ImageItem from 'components/molecules/ImageItem';
 import { useImageActions, useImage } from 'hooks';
 
 const SearchView: React.FC = () => {
@@ -72,16 +73,6 @@ const SearchView: React.FC = () => {
     setSearch(e.target.value);
   };
 
-  const handleBookMark = (v: PhotoListResponse) => {
-    if (images.find(item => item.id === v.id)) {
-      const filterImages = images.filter(item => item.id !== v.id);
-      setImages(filterImages);
-    } else {
-      const pushImages = [...images, v];
-      setImages(pushImages);
-    }
-  };
-
   return (
     <SearchWrap>
       <SearchHeader
@@ -117,28 +108,7 @@ const SearchView: React.FC = () => {
       <SearchResultWrap isEmpty={!photoList}>
         {!isLoading || !getPhotoList.isLoading ? (
           photoList ? (
-            photoList.map(item => (
-              <SearchItem key={item.id}>
-                <img
-                  src={item.urls.thumb}
-                  alt={item.alt_description}
-                  width={'100%'}
-                  height={'100%'}
-                />
-                <BookmarkButton
-                  type={'button'}
-                  onClick={() => handleBookMark(item)}
-                  isSelect={!!images.find(v => v.id === item.id)}
-                >
-                  <img
-                    src={images.find(v => v.id === item.id) ? Active : UnActive}
-                    alt="bookmark"
-                    width={'15px'}
-                    height={'15px'}
-                  />
-                </BookmarkButton>
-              </SearchItem>
-            ))
+            photoList.map(item => <ImageItem item={item} />)
           ) : (
             <Typo size={'BODY2'} color={colors.GRAY1}>
               아무 사진이 없습니다.
